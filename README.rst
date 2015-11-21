@@ -6,23 +6,43 @@ PyPy.  Compiled into JavaScript.  JIT-compiling to JavaScript at runtime.
 Because why not.
 
 This is a very-much-in-flux collection of supporting scripts and infrastructure
-for my experimental emscripten/asmjs backend for PyPy, as described here:
+for an experimental emscripten/asmjs backend for PyPy.  You can read more about
+the project (and try it out live!) here:
 
-    https://www.rfk.id.au/blog/entry/pypy-js-first-steps/
+    http://pypyjs.org/
 
-The actual PyPy backend is maintained as a git submodule on top of the
-mainline PyPy repo:
+If you just want to use a pre-compiled PyPy.js interpreter, please download
+a release bundle from the above website and follow the instructions in the
+included `README <README.dist.rst>`_.
 
-    https://github.com/rfk/pypy
+If you're like to work on the PyPy.js code itself, please see the details
+in `CONTRIBUTING.rst <CONTRIBUTING.rst>`_.  All code is available under the
+`MIT License <LICENSE.txt>`_.
 
-To build it you will need a 32bit python environment, along with this fork
-of emscripten:
+For the history of the project, see `NEWS <NEWS.md>`_.
 
-    https://github.com/rfk/emscripten
 
-Run the build like so:
+Repository Overview
+~~~~~~~~~~~~~~~~~~~
 
-    $> cd ./pypy
-    $> python ./rpython/bin/rpython --backend=js --opt=jit ./pypy/goal/targetpypystandalone.py
++-------------------------+-------------------------------------------------------------------------------------+
+| `pypyjs`_               | Main repository to built a PyPy.js release                                          |
++-------------------------+-------------------------------------------------------------------------------------+
+| `pypy`_                 | Fork of PyPy with support for compiling to javascript                               |
++-------------------------+-------------------------------------------------------------------------------------+
+| `pypyjs-release`_       | Latest release build of PyPy.js, as a handy git submodule                           |
++-------------------------+-------------------------------------------------------------------------------------+
+| `pypyjs-release-nojit`_ | Latest release build of PyPy.js, without a JIT                                      |
++-------------------------+-------------------------------------------------------------------------------------+
+| `pypyjs-examples`_      | Examples/snippets usage of `pypyjs-release`_ and `pypyjs-release-nojit`_            |
++-------------------------+-------------------------------------------------------------------------------------+
+| `pypyjs.github.io`_     | source for `pypyjs.org`_ website use `pypyjs-release`_ and `pypyjs-release-nojit`_  |
++-------------------------+-------------------------------------------------------------------------------------+
 
-This will produce a file "pypy-js" containing the interpreter.  Take a look in the "demo" directory for an example of distributing this file.
+.. _pypyjs: https://github.com/pypyjs/pypyjs
+.. _pypy: https://github.com/pypyjs/pypy
+.. _pypyjs-release: https://github.com/pypyjs/pypyjs-release
+.. _pypyjs-release-nojit: https://github.com/pypyjs/pypyjs-release-nojit
+.. _pypyjs-examples: https://github.com/pypyjs/pypyjs-examples
+.. _pypyjs.github.io: https://github.com/pypyjs/pypyjs.github.io
+.. _pypyjs.org: https://pypyjs.org
